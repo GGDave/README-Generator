@@ -69,7 +69,7 @@ inquirer.prompt(
   {
     type: 'input',
     message: 'E-mail:?',
-    name: 'EMail',
+    name: 'E-Mail',
     validate: (value) =>{ if (value){return true} else {return `Please enter a valid option`}},
   }
 
@@ -127,79 +127,5 @@ function createNewFile(fileName,data){
 
 }
 
-// const { ifError } = require("assert");
-// const { log } = require("console");
-//   {
-//     type: 'input',
-//     message: 'Would you like to use a license',
-//     name: 'License',
-//     validate: (value) =>{ if (value){return true} else {return `Please enter a license name`}},
-// },
-
-
-    // * [ProjectTittle](#ProjectTittle)
-    //     * [Description](#Description)
-    //     * [TableOfContents](#TableOfContents)
-    //     * [Install](#Install)
-    //     * [Usage](#Usage)
-    //     * [License](#License)
-    //     * [Contributing](#Contributing)
-    //     * [Test](#Test)
-    //     * [Questions](#Questions)
-    
-
-
-
-
-
-//     fs.writeFile('README.md', content, (err) => {
-//       if (err) throw err;
-//       console.log('The file has been saved!');
-//     });
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
-// .then((answers) => {
-//     const { ProjectTittle, Description, Table, Install, Usage, License, Contributing, Test, Questions } = answers;
-    
-//     const content = `
-//       ## ProjectTittle
-//      ${ProjectTittle}
-      
-//       ## Description
-//       ${Description}
-      
-//       ## Table of Contents
-//       ${Table}
-      
-//       ## Installation
-//       ${Install}
-      
-//       ## Usage
-//       ${Usage}
-      
-//       ## License
-//       ${License}
-      
-//       ## Contributing
-//       ${Contributing}
-      
-//       ## Tests
-//       ${Test}
-      
-//       ## Questions
-//       ${Questions}
-//     `;
-  
-//     fs.writeFile('README.md', content, (err) => {
-//       if (err) throw err;
-//       console.log('The file has been saved!');
-//     });
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
 
 
