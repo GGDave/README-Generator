@@ -12,7 +12,7 @@ inquirer.prompt(   // this line will begin the inquirer function. the command li
      type: 'input', // this line will determin what type of information will be inserted.
      message: 'Title of my project?', //this is the message that will display in the command line.
      name: 'ProjectTittle', // the name: parameter will be used as a way to refer to the inputed information
-     validate: (value) =>{ if (value){return true} else {return `Please enter a valid project name`}}, //
+     validate: (value) =>{ if (value){return true} else {return `Please enter a valid project name`}}, // this line is added to verify that the user inputs a valid answer.
 
    },
    {
@@ -40,7 +40,7 @@ inquirer.prompt(   // this line will begin the inquirer function. the command li
     validate: (value) =>{ if (value){return true} else {return `Please enter a valid option`}},
   },
   {
-    type: 'list',
+    type: 'list', //the list option allows the user to select an option from the choises added by the developer.
     message: 'License Name?',
     name: 'License',
     choices:[`None`, `Apache 2.0`, `GNU 3.0`, `MIT`, `BDS2`, `BDS3`],
@@ -79,7 +79,7 @@ inquirer.prompt(   // this line will begin the inquirer function. the command li
 
   ])
 
- .then(({
+ .then(({  //the ".then" section will contain the objects with the infomation inputed from the user. by using template literal syntax ${} we can target that information directly.
     ProjectTittle,
     License,
     Description,
@@ -92,9 +92,9 @@ inquirer.prompt(   // this line will begin the inquirer function. the command li
     git,
     EMail
  })=>{
-
+    //in the section bellow we begin to form the template for the read me file. we can place any section in any location by moving the template literal syntax ${}  
     const template = `# ${ProjectTittle} # ${License}
-    
+      
     * [Installation](#installation)
     * [Usage](#Usage)
     * [Contributing](#Contributing)
@@ -125,13 +125,13 @@ inquirer.prompt(   // this line will begin the inquirer function. the command li
     E-Mail: ${EMail}`;
 
 
-    createNewFile(ProjectTittle,template);
+    createNewFile(ProjectTittle,template); // in this line we create a "createNewFile" function so we can pass the data to the "fs" module allowing us to then create the readme file with the correct information.
 }
 );
 
-function createNewFile(fileName,data){
- fs.writeFile(`./${fileName.toLowerCase().split(``).join(``)}.md`,data,(err)=>{
-  if (err){
+function createNewFile(fileName,data){  //file name will be use as the title of the readme.md and data will contain the information above.
+ fs.writeFile(`./${fileName.toLowerCase().split(``).join(``)}.md`,data,(err)=>{ // in this line we call the "fs" module to create our readme file, we add .split and .join to remove any spaces and combines the resulting string to.md
+  if (err){ //we add an "if err" statement as added troubleshooting help in finding errors in the command line.  
     console.log(err);
   }
   console.log(`README has been successfully created`);
