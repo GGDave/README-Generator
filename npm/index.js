@@ -1,14 +1,18 @@
 const inquirer = require(`inquirer`);
+// in the above line we create a constant to equal "require(`inquirer`)" so the inquirer module can gather the information from inquirer.prompt and apply it to an application
 const fs = require(`fs`);
+// in the above line we set cont fs to = require(`fs`) so we can save the information inputted by the user and save it to the readme file. both line 1 and line 3 need to be at the top of the javascript file
+// so the correct modules get inported and the javascript file can run correctly.
 
 
-inquirer.prompt(
+
+inquirer.prompt(   // this line will begin the inquirer function. the command line will ask the user the following questions to gather the information.
   [
    {
-     type: 'input',
-     message: 'Title of my project?',
-     name: 'ProjectTittle',
-     validate: (value) =>{ if (value){return true} else {return `Please enter a valid project name`}},
+     type: 'input', // this line will determin what type of information will be inserted.
+     message: 'Title of my project?', //this is the message that will display in the command line.
+     name: 'ProjectTittle', // the name: parameter will be used as a way to refer to the inputed information
+     validate: (value) =>{ if (value){return true} else {return `Please enter a valid project name`}}, //
 
    },
    {
