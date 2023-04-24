@@ -26,7 +26,7 @@ inquirer.prompt(
   {
     type: 'input',
     message: 'Installation?',
-    name: 'Install',
+    name: 'installation',
     validate: (value) =>{ if (value){return true} else {return `Please enter a valid option`}},
   },
   {
@@ -69,7 +69,7 @@ inquirer.prompt(
   {
     type: 'input',
     message: 'E-mail:?',
-    name: 'E-Mail',
+    name: 'EMail',
     validate: (value) =>{ if (value){return true} else {return `Please enter a valid option`}},
   }
 
@@ -77,11 +77,11 @@ inquirer.prompt(
 
  .then(({
     ProjectTittle,
+    License,
     Description,
     TableOfContents,
-    Install,
+    installation,
     Usage,
-    License,
     Contributing,
     Test,
     Questions,
@@ -89,30 +89,38 @@ inquirer.prompt(
     EMail
  })=>{
 
-    const template = `# ${ProjectTittle}
+    const template = `# ${ProjectTittle} # ${License}
     
-    ##ProjectTittle
+    * [Installation](#installation)
+    * [Usage](#Usage)
+    * [Contributing](#Contributing)
+    * [Tests](#Tests)
+    * [Questions](#Questions)
+   
+   
+   
+    #ProjectTittle
     ${ProjectTittle}
-    ##Description
-    ${Description}
-    ##TableOfContents
-    ${TableOfContents}
-    ##Install
-    ${Install}
-    ##Usage
-    ${Usage}
     ##License
     ${License}
+    ##TableOfContents
+    ${TableOfContents}
+    ##Usage 
+    ${Usage}
+    ##Description
+    ${Description}
+    ##Installation 
+    ${installation}
     ##Contributing
     ${Contributing}
     ##Test
     ${Test}
     #Questions
     ${Questions}
+    Github: ${git}
+    E-Mail: ${EMail}`;
 
-    // # Contact
-    // * Github: ${git}
-    // * E-Mail: ${EMail}`;
+
     createNewFile(ProjectTittle,template);
 }
 );
@@ -128,4 +136,6 @@ function createNewFile(fileName,data){
 }
 
 
+ 
 
+   
